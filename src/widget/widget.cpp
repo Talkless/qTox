@@ -61,6 +61,9 @@
 #include "src/persistence/profile.h"
 #include "src/persistence/settings.h"
 #include "src/platform/timer.h"
+#if defined (Q_OS_WIN)
+#include "src/platform/windowsshutdown.h"
+#endif
 #include "src/widget/form/addfriendform.h"
 #include "src/widget/form/chatform.h"
 #include "src/widget/form/filesform.h"
@@ -97,6 +100,9 @@ Widget::Widget(QWidget* parent)
     installEventFilter(this);
     QString locale = Settings::getInstance().getTranslation();
     Translator::translate(locale);
+#if defined(Q_OS_WIN)
+    Platform::blockWindowsShutdown(this, tr("qTox is saving your settings"));
+#endif
 }
 
 void Widget::init()

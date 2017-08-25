@@ -434,6 +434,10 @@ if (${CMAKE_SYSTEM_NAME} MATCHES "Windows")
   set(${PROJECT_NAME}_SOURCES ${${PROJECT_NAME}_SOURCES}
     src/platform/camera/directshow.cpp
     src/platform/camera/directshow.h
+    src/platform/windowseventfilter.cpp
+    src/platform/windowseventfilter.h
+    src/platform/windowsshutdown.cpp
+    src/platform/windowsshutdown.h
   )
   set(${PROJECT_NAME}_RESOURCES ${${PROJECT_NAME}_RESOURCES}
     windows/qtox.rc
